@@ -29,7 +29,7 @@ const Categories = () => {
 
 
     const categoriTrigger = (categori)=>{
-        console.log(categori);
+        // console.log(categori);
         navigate(`/categoriProduct/${categori}`)
 
     }

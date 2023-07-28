@@ -32,6 +32,9 @@ const SingleProductCard = ({ product }) => {
     }
   };
   const isProductInCart = item.some((item) => item.id === product._id);
+
+
+  
   return (
     <div className="flex flex-col shadow-xl">
       <img

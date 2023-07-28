@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+
 import SingleItem from "./SingleItem";
 import Slider from "react-slick";
+import { useQuery } from "react-query";
 
 
 const HotDealsOfTheDay = () => {
@@ -16,13 +17,18 @@ const HotDealsOfTheDay = () => {
       };
 
 
-      useEffect(()=>{
-         fetch('http://localhost:5000/')
-         .then(res => res.json())
-         .then(result => {
-            console.log(result.data);
-         })
-      },[])
+   
+
+      const {data:hotDealsProduct=[],isLoading}=useQuery({
+         queryKey:[],
+         queryFn: async ()=> {
+            const res = await fetch(`http://localhost:5000/hotDealsProduct`)
+            const data = res.json()
+            return data;
+         }
+      })
+
+      const productData = hotDealsProduct.data;
 
   
     return (
@@ -36,13 +42,15 @@ const HotDealsOfTheDay = () => {
              <div className="">
                
                 <Slider {...settings}>
-                  
-                  <SingleItem></SingleItem>
-                  <SingleItem></SingleItem>
-                  <SingleItem></SingleItem>
-                  <SingleItem></SingleItem>
-                  <SingleItem></SingleItem>
-                  <SingleItem></SingleItem>
+                 
+                 {
+                  productData?.map(product => <SingleItem
+                  key={product._id}
+                  isLoadin={isLoading}
+                  product={product}
+                  ></SingleItem>
+                  )
+                 } 
            
                 
                </Slider>
