@@ -16,6 +16,7 @@ const Navbar = () => {
     const handleSignOut =()=>{
       userSignOUt()
       navigate('/')
+      localStorage.removeItem("products");
     }
 
     // custom hook

@@ -42,7 +42,7 @@ const MyProduct = () => {
     }
     return (
         <div>
-             <h1 className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">All of my <span className="text-amber-500">Products</span></h1>
+             <h1 className="p-8 text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl"> All of my <span className="text-amber-500">Products</span></h1>
             {/* table  */}
             <div>
                 <div className="overflow-x-auto">

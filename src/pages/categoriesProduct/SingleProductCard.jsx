@@ -14,6 +14,7 @@ const SingleProductCard = ({ product }) => {
   }, []);
 
   const addtoCart = (pro) => {
+    console.log(pro);
     const previousItemofLocalStorage = localStorage.getItem("products");
     const previousItemofLocalStorageParsed = JSON.parse(
       previousItemofLocalStorage
@@ -25,7 +26,7 @@ const SingleProductCard = ({ product }) => {
     ) {
       const newProducts = [
         ...(previousItemofLocalStorageParsed || []),
-        { name: pro.productName, id: pro._id },
+        { name: pro.productName, id: pro._id , price: pro.price},
       ];
       setItem(newProducts);
       localStorage.setItem("products", JSON.stringify(newProducts));
