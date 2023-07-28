@@ -18,8 +18,8 @@ const SignIn = () => {
 
     const handleSignIn = (data) => {
         const {email,password} = data
-        
 
+        
         userLogin(email,password)
         .then((userCredential) => {
             const user = userCredential.user;

@@ -49,7 +49,7 @@ const MyProduct = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                    <tr className='text-amber-600 font-semibold'>
+                    <tr className="bg-zinc-200 text-amber-600 drop-shadow-lg">
                         
                         <th>Product name</th>
                         <th>Conditin</th>

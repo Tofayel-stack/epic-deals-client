@@ -7,7 +7,6 @@ const MyOrder = () => {
     const cartProduct = JSON.parse(orderIteam)
 
     const myfun = (product)=>{
-
         const confirm = window.confirm('Are u sure ? ')
 
         if(confirm){

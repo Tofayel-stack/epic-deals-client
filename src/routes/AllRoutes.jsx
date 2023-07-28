@@ -16,6 +16,7 @@ import About from "../pages/about/About";
 import SignUp from "../pages/signIn/SignUp";
 import UserProfile from "../pages/dashboard/UserProfile";
 import CategoriesProduct from "../pages/categoriesProduct/CategoriesProduct";
+import ProductDetails from "../pages/productDetails/ProductDetails";
 
 
 
@@ -52,8 +53,14 @@ const router = createBrowserRouter([
                 path:'/categoriProduct/:categori',
                 loader:async({params})=>await fetch(`http://localhost:5000/categoriProduct/${params.categori}`),
                 element:<CategoriesProduct></CategoriesProduct>
-                // http://localhost:5000/
+                
             },
+            {
+                path:'/product/:id',
+                loader:async({params})=>await fetch(`http://localhost:5000/product/${params.id}`),
+                element: <ProductDetails></ProductDetails>
+            }
+               
             
         ]
     },

@@ -14,7 +14,7 @@ const SingleProductCard = ({ product }) => {
   }, []);
 
   const addtoCart = (pro) => {
-    console.log(pro);
+    // console.log(pro);
     const previousItemofLocalStorage = localStorage.getItem("products");
     const previousItemofLocalStorageParsed = JSON.parse(
       previousItemofLocalStorage
@@ -32,6 +32,7 @@ const SingleProductCard = ({ product }) => {
       localStorage.setItem("products", JSON.stringify(newProducts));
     }
   };
+  // to make this sm product button disabled
   const isProductInCart = item.some((item) => item.id === product._id);
 
 
@@ -58,7 +59,7 @@ const SingleProductCard = ({ product }) => {
           </button>
           <button
             onClick={() => addtoCart(product)}
-            className={`btn btn-xs ${isProductInCart ? "btn-disabled" : ""}`}
+            className={`btn btn-xs ${isProductInCart && "btn-disabled"}`}
             disabled={isProductInCart}
           >
             {isProductInCart ? "Added to cart" : "Add to cart"}
