@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import { AiFillStar } from 'react-icons/ai';
 import { TbCurrencyTaka } from 'react-icons/tb';
+import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 
 
@@ -8,6 +10,42 @@ const ProductDetails = () => {
     const singleProduct = useLoaderData()
     const singleProductData = singleProduct.data;
     console.log(singleProductData);
+
+
+    const [item, setItem] = useState([]);
+
+    useEffect(() => {
+      const previousItemofLocalStorage = localStorage.getItem("products");
+      const previousItemofLocalStorageParsed = JSON.parse(
+        previousItemofLocalStorage
+      );
+      setItem(previousItemofLocalStorageParsed || []);
+    }, []);
+  
+    const addtoCart = (pro) => {
+      // console.log(pro);
+      const previousItemofLocalStorage = localStorage.getItem("products");
+      const previousItemofLocalStorageParsed = JSON.parse(
+        previousItemofLocalStorage
+      );
+  
+      if (
+        !previousItemofLocalStorageParsed ||
+        !previousItemofLocalStorageParsed.find((item) => item.id === pro._id)
+      ) {
+        const newProducts = [...(previousItemofLocalStorageParsed || []),
+          { name: pro.productName, id: pro._id , price: pro.price},
+        ];
+        setItem(newProducts);
+        localStorage.setItem("products", JSON.stringify(newProducts));
+        toast.success('product added to order list, please pay to confirm ')
+      }
+    };
+    // to make this sm product button disabled
+    const isProductInCart = item.some((item) => item.id === singleProductData._id);
+  
+  
+
 
 
 
@@ -69,7 +107,15 @@ const ProductDetails = () => {
                     </div>
                     <div className="flex">
                     <span className="title-font font-medium text-2xl text-gray-900">Price  {singleProductData.price}<TbCurrencyTaka className="inline text-amber-400"></TbCurrencyTaka></span>
-                    <button className="flex ml-auto text-white bg-amber-500 border-0 py-2 px-6 focus:outline-none hover:bg-slate-600 rounded">Add to cart</button>
+                    
+
+                    <button
+                        onClick={() => addtoCart(singleProductData)}
+                        className={`flex btn ml-auto text-white bg-amber-500 border-0 py-2 px-6 focus:outline-none hover:bg-slate-600 ${isProductInCart && "btn-disabled"}`}
+                        disabled={isProductInCart}
+                    >
+                        {isProductInCart ? "Added done" : "Add to cart"}
+                    </button>
 
 
                     <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">

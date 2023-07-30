@@ -75,7 +75,7 @@ const Navbar = () => {
               {/* user will be redirect according to userType */}
               {/* if the loading is false and role detected then dashboard showing */}
               {
-               userType === 'Admin' && 
+              user && userType === 'Admin' && 
                 <Link
                 to='/dashboard/admin/allSellers'
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-amber-600"
@@ -84,7 +84,7 @@ const Navbar = () => {
               </Link>
               }
               {
-               userType === 'Buyer' && 
+              user && userType === 'Buyer' && 
                 <Link
                 to='/dashboard/regular/myOrder'
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-amber-600"
@@ -94,7 +94,7 @@ const Navbar = () => {
               }
              
               {
-               userType === 'Seller' && 
+              user && userType === 'Seller' && 
                 <Link
                 to='/dashboard/seller/myProduct'
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-amber-600"

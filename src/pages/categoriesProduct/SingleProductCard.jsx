@@ -1,40 +1,8 @@
-import { useEffect, useState } from "react";
+
 import { AiOutlineStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const SingleProductCard = ({ product }) => {
-  const [item, setItem] = useState([]);
-
-  useEffect(() => {
-    const previousItemofLocalStorage = localStorage.getItem("products");
-    const previousItemofLocalStorageParsed = JSON.parse(
-      previousItemofLocalStorage
-    );
-    setItem(previousItemofLocalStorageParsed || []);
-  }, []);
-
-  const addtoCart = (pro) => {
-    // console.log(pro);
-    const previousItemofLocalStorage = localStorage.getItem("products");
-    const previousItemofLocalStorageParsed = JSON.parse(
-      previousItemofLocalStorage
-    );
-
-    if (
-      !previousItemofLocalStorageParsed ||
-      !previousItemofLocalStorageParsed.find((item) => item.id === pro._id)
-    ) {
-      const newProducts = [
-        ...(previousItemofLocalStorageParsed || []),
-        { name: pro.productName, id: pro._id , price: pro.price},
-      ];
-      setItem(newProducts);
-      localStorage.setItem("products", JSON.stringify(newProducts));
-    }
-  };
-  // to make this sm product button disabled
-  const isProductInCart = item.some((item) => item.id === product._id);
-
 
   
   return (
@@ -54,16 +22,11 @@ const SingleProductCard = ({ product }) => {
         </h3>
         <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs">
           <span className="text-amber-600">Price: {product.price}</span>
-          <button className="btn btn-xs">
-            <Link to={`/product/${product._id}`}>Details</Link>
+
+          <button>
+            <Link className="ml-auto text-white bg-amber-500 py-1 px-3 font-semibold hover:bg-slate-600" to={`/product/${product._id}`}>See More</Link>
           </button>
-          <button
-            onClick={() => addtoCart(product)}
-            className={`btn btn-xs ${isProductInCart && "btn-disabled"}`}
-            disabled={isProductInCart}
-          >
-            {isProductInCart ? "Added to cart" : "Add to cart"}
-          </button>
+         
         </div>
       </div>
     </div>
