@@ -4,6 +4,7 @@ import HotDealsOfTheDay from "./hotDeals/HotDealsOfTheDay";
 import Categories from "./categories/Categories";
 import FeaturedItem from "./advertiseItems/FeaturedItem";
 import OurWorship from "./ourWorship/OurWorship";
+import UsedProduct from "./usedProduct/UsedProduct";
 
 
 
@@ -18,6 +19,7 @@ const Home = () => {
            <FeaturedItem></FeaturedItem>
            <Categories></Categories>
            <HotDealsOfTheDay></HotDealsOfTheDay>
+           <UsedProduct></UsedProduct>
            <TopBrands></TopBrands>
         </div>
     );

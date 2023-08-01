@@ -13,7 +13,34 @@ const HotDealsOfTheDay = () => {
         autoplay: true,
         autoplaySpeed: 5000,
         speed: 5000,
-        cssEase: "linear"
+        cssEase: "linear",
+         responsive: [
+            {
+            breakpoint: 1024,
+            settings: {
+               slidesToShow: 3,
+               slidesToScroll: 3,
+               infinite: true,
+               dots: true
+            }
+            },
+            {
+            breakpoint: 600,
+            settings: {
+               slidesToShow: 2,
+               slidesToScroll: 2,
+               initialSlide: 2
+            }
+            },
+            {
+            breakpoint: 480,
+            settings: {
+               slidesToShow: 1,
+               slidesToScroll: 1
+            }
+            }
+         ]
+
       };
 
 
@@ -32,7 +59,7 @@ const HotDealsOfTheDay = () => {
 
   
     return (
-          <div className=" bg-zinc-200"> 
+          <div className=" bg-zinc-200 "> 
              <div className="container m-auto py-16">
 
                 <h2 className="max-w-lg my-12 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl "> 
