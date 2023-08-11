@@ -3,13 +3,14 @@ import { AiFillStar } from 'react-icons/ai';
 import { TbCurrencyTaka } from 'react-icons/tb';
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import Review from "../../components/reviewSection/Review";
 
 
 
 const ProductDetails = () => {
     const singleProduct = useLoaderData()
     const singleProductData = singleProduct.data;
-    console.log(singleProductData);
+    // console.log(singleProductData);
 
 
     const [item, setItem] = useState([]);
@@ -126,9 +127,13 @@ const ProductDetails = () => {
                     </div>
                 </div>
                 </div>
-            </div>
 
-     
+
+
+                {/* this part will added the Review section of a product  */}
+                
+                <Review singleProductData={singleProductData}></Review>
+            </div>
             </section>
         </div>
     );

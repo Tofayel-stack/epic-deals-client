@@ -6,10 +6,6 @@ const ProductCard = () => {
     const [like,setLike]=useState(false)
     const [infoShow,setInfoShow] = useState(false)
 
-    console.log(like);
-
-
-
     return (
         <div>
             <div 
@@ -24,9 +20,13 @@ const ProductCard = () => {
                     {/* product info . visible when hover */}
                     <div className={`absolute bottom-0 backdrop-brightness-50 p-2 ${infoShow?'opacity-100':'opacity-0' } transition duration-700`}>
                         <p className='text-white'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad amet ea deserunt.</p>
-                        <span className='ml-auto text-white bg-amber-500 rounded px-2 font-semibold hover:bg-slate-600'>See more</span>
+                        <span className='ml-auto text-white bg-amber-500 rounded px-2 font-semibold hover:bg-slate-600'>Buy now</span>
+
                     </div>
+                    
                 </div>
+
+
 
                 <div className='text-center m-4 p-4'>
                     <span className='font-semibold'>$ 3050</span> <br />
@@ -37,6 +37,7 @@ const ProductCard = () => {
                         <AiOutlineStar className='inline'></AiOutlineStar>
                     </span>
                 </div>
+                {/* Open the modal using ID.showModal() method */}
 
             </div>
         </div>
