@@ -50,7 +50,7 @@ const MyOrder = () => {
             {/* table for order list  */}
 
             <div className="overflow-x-auto">
-                <table className="table table-zebra">
+                <table className="table">
                     {/* head */}
                     <thead>
                     <tr className="bg-zinc-200 text-zinc-800 drop-shadow-lg">

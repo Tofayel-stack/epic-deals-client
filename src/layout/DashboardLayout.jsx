@@ -20,22 +20,22 @@ const DashboardLayout = () => {
         <div>
              <Navbar></Navbar>
             <div className="drawer bg-orange-50 lg:drawer-open">
-                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col">
+                <input id="dashSideNav" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content flex flex-col overflow-x-auto">
                     {/* Page content here */}
                    
                     <Outlet></Outlet>
 
 
 
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    {/* <label htmlFor="dashSideNav" className="btn btn-primary drawer-button lg:hidden">XXX</label> */}
                 
                 </div> 
                 <div className="drawer-side">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
+                    <label htmlFor="dashSideNav" className="drawer-overlay"></label> 
                     <ul className="menu p-4 w-80 h-full bg-base-200  text-amber-600 font-semiboldP">
                     {/* Sidebar content here */}
-                    {/* <li><a>Sidebar Item 1</a></li> */}
+                    
                     {
                         userType === 'Seller' && <>
                                 <li><Link to='/dashboard/seller/myProduct'>My Products</Link></li>

@@ -52,10 +52,7 @@ const BannerSlider = () => {
   return (
     <div className="container m-auto relative">
       <Slider className="" {...settings}>
-      {/* <div>
-        <img src={pic1} alt="" />
-      </div> */}
-
+  
   
     {
         sliderImgInfoData.map((data,i) => 
@@ -65,9 +62,7 @@ const BannerSlider = () => {
         ></SliderCompo>
         )
       }
-     
-    
-    
+  
     </Slider>
 
     

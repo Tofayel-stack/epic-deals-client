@@ -8,8 +8,8 @@ import pic7 from '../../../assets/productGridGallery/Screenshot_9.jpg'
 
 const FeaturedItem = () => {
     return (
-        <div className="container m-auto py-28">
-             <h2 className="max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl "> 
+        <div className="container m-auto lg:py-28">
+             <h2 className="max-w-lg font-sans text-xl lg:text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl "> 
              FEATURED <span className='text-amber-600'> Products _________</span>
            </h2>
             <section className="max-w-4xl m-auto py-6 dark:bg-gray-800 dark:text-gray-50">

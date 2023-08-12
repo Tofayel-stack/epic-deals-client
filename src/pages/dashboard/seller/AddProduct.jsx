@@ -58,7 +58,7 @@ const AddProduct = () => {
               })
               .catch(error => {
                 console.error('Error:', error)
-                toast.error('somthing error in img upload fun')
+                toast.error('something error in img upload')
               });
 
  }
@@ -141,6 +141,7 @@ const AddProduct = () => {
                                     <option>Furniture</option>
                                     <option>Clothes</option>
                                     <option>Gadgets</option>
+                                    <option>Fashion</option>
                             </select>
                             {errors.categories && <span className="text-red-500 text-xs">This field is required</span>}
                             </div>

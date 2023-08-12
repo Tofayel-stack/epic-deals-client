@@ -50,8 +50,8 @@ const router = createBrowserRouter([
                 element:<SignUp></SignUp>
             },
             {
-                path:'/categoriProduct/:categori',
-                loader:async({params})=>await fetch(`http://localhost:5000/categoriProduct/${params.categori}`),
+                path:'/categoryProduct/:category',
+                loader:async({params})=>await fetch(`http://localhost:5000/categoryProduct/${params.category}`),
                 element:<CategoriesProduct></CategoriesProduct>
                 
             },
@@ -98,7 +98,7 @@ const router = createBrowserRouter([
             },
 
 
-            // serllers route 
+            // sellers route 
             {
                 path:'/dashboard/seller/addProduct',
                 element:<AddProduct></AddProduct>

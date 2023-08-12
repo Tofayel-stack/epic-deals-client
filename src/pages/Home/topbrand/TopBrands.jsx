@@ -20,7 +20,7 @@ const TopBrands = () => {
         
             <section className="text-gray-800 py-36">
 	<div className="container p-6 mx-auto space-y-6 lg:p-8 lg:space-y-8">
-		<h2 className="text-3xl font-bold">Top Brands <span className='text-amber-600'>___________</span></h2>
+		<h2 className="lg:text-3xl text-xl font-bold">Top Brands <span className='text-amber-600'>___________</span></h2>
 		<div className="flex flex-wrap justify-center lg:justify-between">
 			
             {

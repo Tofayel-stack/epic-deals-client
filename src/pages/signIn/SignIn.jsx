@@ -52,7 +52,7 @@ const SignIn = () => {
          
 
             <div className="flex flex-col justify-evenly items-center py-6 lg:h-[36rem] lg:flex-row">
-                <div className="lg:w-1/2">
+                <div className="lg:w-1/2 hidden lg:block">
                     <h2 className="text-3xl font-semibold text-gray-100 lg:text-4xl">Epic-Deals</h2>
 
                     <h3 className="mt-2 text-2xl font-semibold text-gray-100">

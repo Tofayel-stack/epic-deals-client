@@ -1,5 +1,5 @@
 import './categoriesStyle.css'
-const CategoriCard = ({data}) => {
+const CategoryCard = ({data}) => {
     return (
         <div className="customShadow">
             <div className="border-2 border-indigo-600 h-48 w-64 rounded-lg border-dashed">
@@ -10,4 +10,4 @@ const CategoriCard = ({data}) => {
     );
 };
 
-export default CategoriCard;
+export default CategoryCard;

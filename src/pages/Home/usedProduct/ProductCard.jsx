@@ -11,7 +11,7 @@ const ProductCard = () => {
             <div 
              onMouseEnter={()=>setInfoShow(true)}
              onMouseLeave={()=>setInfoShow(false)}
-             className="bg-zinc-50 shadow-lg rounded-md m-4">
+             className="bg-zinc-50 shadow-lg rounded-md mx-4 my-2">
                 <h3 className='text-center py-2'>product name</h3>
                 <div className='relative'>
                     <span><GiSelfLove onClick={()=>setLike(true)} className={`${like? 'text-red-500' : 'text-amber-400'} text-xl absolute top-6 right-4`}></GiSelfLove></span>
@@ -38,6 +38,9 @@ const ProductCard = () => {
                     </span>
                 </div>
                 {/* Open the modal using ID.showModal() method */}
+
+
+                {/* modal end */}
 
             </div>
         </div>

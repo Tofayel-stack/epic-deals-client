@@ -30,7 +30,7 @@ const MyProduct = () => {
         .then(result => {
             if(result.success){
                 // console.log(result.data);
-                toast.success('product added to hotdeals')
+                toast.success('product added to hot deals')
                 refetch()
             }
         })
@@ -52,9 +52,9 @@ const MyProduct = () => {
                     <tr className="bg-zinc-200 text-amber-600 drop-shadow-lg">
                         
                         <th>Product name</th>
-                        <th>Conditin</th>
+                        <th>Condition</th>
                         <th>Price</th>
-                        <th>Details</th>
+                        <th className='hidden lg:block'>Details</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -88,10 +88,9 @@ const MyProduct = () => {
 
                                         <td>TK: {product.price}</td>
 
-                                        <td>
-                                        {product.productDetails}
-                                        <br/>
-                                        <span className="badge badge-ghost badge-sm">{product.productDetails}</span>
+                                        <td className='hidden lg:block'>
+                                        {product.productDetails.slice(0,30)}
+                                       
                                         </td>
 
                                         <td>

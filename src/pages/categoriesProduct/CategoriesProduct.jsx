@@ -6,6 +6,8 @@ const CategoriesProduct = () => {
     const products = useLoaderData()
     // console.log(products);
 
+  
+
     return (
         <div className="container m-auto py-8">
             <h2 className="max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl "> 
@@ -387,7 +389,17 @@ const CategoriesProduct = () => {
                 
                 <div className="lg:col-span-3">
                     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-               
+
+                        {
+                            products?.data.length ===0 &&
+                                 <>
+                                 <div></div>
+                                 <h1 className="text-center text-3xl text-slate-300">No Product</h1>
+                                 <div></div>
+                                 </>
+                                
+                        }
+                        
 
                         {
                             products?.data?.map(product =>  

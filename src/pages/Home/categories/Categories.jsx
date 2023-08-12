@@ -1,7 +1,8 @@
-import CategoriCard from "./CategoriCard";
+import CategoryCard from "./CategoryCard";
 import furniture from '../../../assets/categori/Furniture.png'
 import clothes from '../../../assets/categori/clothes.png'
 import gadgets from '../../../assets/categori/gadgets.png'
+import fashion from '../../../assets/categori/fashion.jpg'
 import { useNavigate } from "react-router-dom";
 
 const Categories = () => {
@@ -9,7 +10,7 @@ const Categories = () => {
     const navigate = useNavigate()
 
 
-    const categoriData = [
+    const categoryData = [
         {   id:1,
             name:"Furniture",
             photo:furniture
@@ -23,34 +24,39 @@ const Categories = () => {
             id:3,
             name:"Gadgets",
             photo:gadgets
+        },
+        {   
+            id:4,
+            name:"Fashion",
+            photo:fashion
         }
     ]
 
 
 
-    const categoriTrigger = (categori)=>{
+    const categoryTrigger = (categori)=>{
         // console.log(categori);
-        navigate(`/categoriProduct/${categori}`)
+        navigate(`/categoryProduct/${categori}`)
 
     }
 
 
     return (
         <div className=""> 
-        <div className="container m-auto py-8">
+        <div className="container m-auto lg:py-8">
 
-           <h2 className="max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl "> 
+           <h2 className="max-w-lg font-sans text-xl lg:text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl "> 
             Categories<span className='text-amber-600'>_________</span>
            </h2>
 
         <div className="flex flex-wrap justify-center gap-12 mt-12">
      
         {
-            categoriData.map((data,i) => 
-               <div  key={i} onClick={()=>categoriTrigger(data.name)}>
-                 <CategoriCard
+            categoryData.map((data,i) => 
+               <div  key={i} onClick={()=>categoryTrigger(data.name)}>
+                 <CategoryCard
                  data={data}
-                ></CategoriCard>
+                ></CategoryCard>
                </div>
             )
         }
