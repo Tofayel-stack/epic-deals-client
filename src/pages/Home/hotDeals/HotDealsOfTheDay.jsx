@@ -47,7 +47,7 @@ const HotDealsOfTheDay = () => {
    
 
       const {data:hotDealsProduct=[],isLoading}=useQuery({
-         queryKey:[],
+         queryKey:['hotDealsProduct'],
          queryFn: async ()=> {
             const res = await fetch(`http://localhost:5000/hotDealsProduct`)
             const data = res.json()

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SingleItem = ({product}) => {
 
 
-    // this is the main compnent with the loaded data ////
+    // this is the main component with the loaded data ////
     return (
 
         <div>

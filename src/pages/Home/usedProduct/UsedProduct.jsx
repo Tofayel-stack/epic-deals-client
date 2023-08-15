@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import { FaLongArrowAltLeft } from 'react-icons/fa';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import ProductCard from "./ProductCard";
+import { useQuery } from "react-query";
+import { useEffect } from "react";
 
 
 
@@ -70,9 +72,17 @@ const UsedProduct = () => {
       };
 
 
+      const condition = 'Used'
+      const {data=[] , refetch}=useQuery({
+        queryKey:["condition"],
+        queryFn:async ()=>{
+          const res = await fetch(`http://localhost:5000/product?condition=${condition}`)
+          const data = res.json();
+          return data;
+        }
+      })
 
-
-
+      const UsedProductData = data.data;
 
     return (
           <div className="container m-auto py-16">
@@ -85,13 +95,13 @@ const UsedProduct = () => {
 <hr />
             <Slider {...settings}>
               
-              <ProductCard></ProductCard>
-              <ProductCard></ProductCard>
-              <ProductCard></ProductCard>
-              <ProductCard></ProductCard>
-              <ProductCard></ProductCard>
-              <ProductCard></ProductCard>
-              <ProductCard></ProductCard>
+            {
+              UsedProductData?.map(product => <ProductCard
+                key={product._id}
+                product={product}
+              ></ProductCard>
+              )
+            }
              
              
               
