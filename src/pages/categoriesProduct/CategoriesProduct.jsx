@@ -1,5 +1,5 @@
 import {useLoaderData } from "react-router-dom";
-import SingleProductCard from "./SingleProductCard";
+import SingleProductCard from "../../components/cardCollection/SingleProductCard";
 
 const CategoriesProduct = () => {
 

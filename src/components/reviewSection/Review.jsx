@@ -18,7 +18,7 @@ const Review = ({singleProductData}) => {
 
     const previousReview = data?.data;
 
-    console.log(previousReview);
+    // console.log(previousReview);
 
 
 

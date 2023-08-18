@@ -17,6 +17,7 @@ import SignUp from "../pages/signIn/SignUp";
 import UserProfile from "../pages/dashboard/UserProfile";
 import CategoriesProduct from "../pages/categoriesProduct/CategoriesProduct";
 import ProductDetails from "../pages/productDetails/ProductDetails";
+import UsedProductPage from "../pages/usedProduct/UsedProductPage";
 
 
 
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/usedProduct',
-                element:<div>product</div>
+                element:<UsedProductPage></UsedProductPage>
             },
             {
                 path:'/about',

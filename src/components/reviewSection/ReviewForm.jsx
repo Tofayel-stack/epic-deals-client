@@ -7,7 +7,7 @@ const ReviewForm = ({singleProductData,refetch}) => {
     const {user} = useContext(AuthContext)
     const createTime = new Date().toLocaleString()
 
-    const handlesubmit=(e)=>{
+    const handleSubmit=(e)=>{
         e.preventDefault()
         const form = e.target;
         const review= form.review.value;
@@ -45,7 +45,7 @@ const ReviewForm = ({singleProductData,refetch}) => {
 
     return (
         <div className='bg-zinc-50 lg:w-11/12 lg:float-right lg:p-12 p-4' >
-        <form onSubmit={handlesubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <span className='text-xl text-slate-500'>Your Review</span> <br /> 
                 <textarea onChange={handleInputChange} className='w-full border outline-none p-2 mt-2' name="review" cols="30" rows="5" placeholder='how is the product '></textarea>

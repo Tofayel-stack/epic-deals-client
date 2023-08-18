@@ -4,7 +4,6 @@ import { FaLongArrowAltLeft } from 'react-icons/fa';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import ProductCard from "./ProductCard";
 import { useQuery } from "react-query";
-import { useEffect } from "react";
 
 
 
@@ -82,7 +81,7 @@ const UsedProduct = () => {
         }
       })
 
-      const UsedProductData = data.data;
+      const usedProductData = data.data;
 
     return (
           <div className="container m-auto py-16">
@@ -96,7 +95,7 @@ const UsedProduct = () => {
             <Slider {...settings}>
               
             {
-              UsedProductData?.map(product => <ProductCard
+              usedProductData?.map(product => <ProductCard
                 key={product._id}
                 product={product}
               ></ProductCard>
