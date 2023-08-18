@@ -111,6 +111,7 @@ const AddProduct = () => {
                       
 
                             <div className="relative">
+                                <p className="text-amber-300 text-sm">Product Name</p>
                             <input
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 {...register("productName", { required: true })}
@@ -122,6 +123,7 @@ const AddProduct = () => {
 
 
                             <div className="relative">
+                            <p className="text-amber-300 text-sm">Product Price</p>
                             <input
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 {...register("price", { required: true , min: 1})}
@@ -133,6 +135,7 @@ const AddProduct = () => {
 
                             
                             <div className="relative">
+                            <p className="text-amber-300 text-sm">Product Category</p>
                             <select
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 {...register("categories", { required: true })}
@@ -149,6 +152,7 @@ const AddProduct = () => {
 
                             
                             <div className="relative">
+                            <p className="text-amber-300 text-sm">Product Condition</p>
                             <select
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 {...register("productCondition", { required: true })}
@@ -162,6 +166,7 @@ const AddProduct = () => {
 
 
                             <div className="relative">
+                            <p className="text-amber-300 text-sm">Add Details</p>
                             <input
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 {...register("productDetails", { required: true })}

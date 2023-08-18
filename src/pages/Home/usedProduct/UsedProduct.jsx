@@ -108,6 +108,7 @@ const UsedProduct = () => {
              
             </Slider>
 <hr />
+
         </div>
     );
 };

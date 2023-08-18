@@ -36,6 +36,7 @@ const TopBrands = () => {
 			
 		</div>
 	</div>
+    
 </section>
        
     );
