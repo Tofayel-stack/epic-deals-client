@@ -12,7 +12,7 @@ const AllSeller = () => {
 
     const sellerURL = 'http://localhost:5000/typeOfUser?type=Seller'
 
-    const { data=[],isLoading }=useQuery({
+    const { data=[],isLoading ,refetch}=useQuery({
         queryKey:[sellerURL],
         queryFn: async() => {
             const res = await fetch(sellerURL)
@@ -27,19 +27,6 @@ const AllSeller = () => {
 
     // verify this seller with this function
     const verifySeller = (id) =>{
-
-        // const { data,isLoading} = useQuery({
-        //         queryKey:[sellerURL],
-        //         queryFn: async()=>{
-        //             const res = await fetch(`http://localhost:5000/verifyUser?id=${id}`,{
-        //                 method:'PUT',
-        //                 headers: {"Content-Type": "application/json"},
-        //                     })
-
-        //             const result = res.json()
-        //             return result
-        //         }
-        // })
         
             fetch(`http://localhost:5000/verifyUser?id=${id}`,{
                 method:'PUT',
@@ -50,7 +37,8 @@ const AllSeller = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result)
-                toast.success('verifyed')
+                toast.success('Seller verified')
+                refetch()
             })
     }
 

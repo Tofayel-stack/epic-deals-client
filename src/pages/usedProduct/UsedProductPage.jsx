@@ -22,7 +22,7 @@ const UsedProductPage = () => {
     return (
         <div className="container m-auto py-8">
         <h2 className="max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl "> 
-        used <span className='text-amber-600'> products_________</span>
+        Used <span className='text-amber-600'> Products_________</span>
        </h2>
 
        {/* component */}
