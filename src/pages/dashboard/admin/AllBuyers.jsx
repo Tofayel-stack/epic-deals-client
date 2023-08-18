@@ -18,9 +18,9 @@ const AllBuyers = () => {
             return data
         }    
     })
-    const allbuyer = data?.data;
+    const allBuyer = data?.data;
 
-    console.log(allbuyer);
+    console.log(allBuyer);
 
 
 
@@ -32,7 +32,7 @@ const AllBuyers = () => {
 
     return (
         <div>
-        <h1 className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">All of my <span className="text-amber-500">Buyers</span></h1>
+        <h1 className="p-8 text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">All of my <span className="text-amber-500">Buyers</span></h1>
        {/* table  */}
        <div>
            <div className="overflow-x-auto">
@@ -54,10 +54,10 @@ const AllBuyers = () => {
 
                {
 
-                       allbuyer && 
+                allBuyer && 
                            <>
                            {
-                               allbuyer?.map(buyer => 
+                               allBuyer?.map(buyer => 
                                    <tr key={buyer._id}>
                                
                                    <td>
@@ -90,12 +90,7 @@ const AllBuyers = () => {
 
 
            
-
-
-       
-               </tbody>
-       
-               
+               </tbody> 
            </table>
            </div>
        </div>

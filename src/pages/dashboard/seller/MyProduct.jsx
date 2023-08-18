@@ -22,14 +22,16 @@ const MyProduct = () => {
 
 // add to hot deals / advertise 
     const handleHotDeals = (id)=>{
+        const updateInfo = { addOnHotDeals : true };
+
         fetch(`http://localhost:5000/product/${id}`,{
             method:'put',
-            headers:{"Content-Type": "application/json"}
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify(updateInfo)
         })
         .then(res => res.json())
         .then(result => {
             if(result.success){
-                // console.log(result.data);
                 toast.success('product added to hot deals')
                 refetch()
             }

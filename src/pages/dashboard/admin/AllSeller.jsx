@@ -27,7 +27,7 @@ const AllSeller = () => {
 
     // verify this seller with this function
     const verifySeller = (id) =>{
-        
+
             fetch(`http://localhost:5000/verifyUser?id=${id}`,{
                 method:'PUT',
                 headers: {
@@ -55,6 +55,7 @@ const AllSeller = () => {
             .then(result => {
                 console.log(result)
                 toast.success('Deleted user')
+                refetch()
             })
         }
     }
@@ -70,7 +71,7 @@ const AllSeller = () => {
 
     return (
               <div>
-             <h1 className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">All of my <span className="text-amber-500">Sellers</span></h1>
+             <h1 className="p-8 text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">All of my <span className="text-amber-500">Sellers</span></h1>
             {/* table  */}
             <div>
                 <div className="overflow-x-auto">
