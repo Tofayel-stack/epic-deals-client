@@ -44,18 +44,23 @@ const HotDealsOfTheDay = () => {
       };
 
 
-   
+
+      // // this is dynamic api for get product data depending on key and value 
+
+      const key = 'addOnHotDeals'
+      const value = true
 
       const {data:hotDealsProduct=[],isLoading}=useQuery({
-         queryKey:['hotDealsProduct'],
-         queryFn: async ()=> {
-            const res = await fetch(`http://localhost:5000/hotDealsProduct`)
-            const data = res.json()
-            return data;
-         }
+        queryKey:[key,value],
+        queryFn:async ()=>{
+          const res = await fetch(`http://localhost:5000/product?key=${key}&value=${value}`)
+          const data = res.json();
+          return data;
+        }
       })
 
       const productData = hotDealsProduct.data;
+
 
   
     return (
@@ -73,7 +78,7 @@ const HotDealsOfTheDay = () => {
                  {
                   productData?.map(product => <SingleItem
                   key={product._id}
-                  isLoadin={isLoading}
+                  isLoading={isLoading}
                   product={product}
                   ></SingleItem>
                   )

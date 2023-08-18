@@ -5,18 +5,21 @@ import { useQuery } from 'react-query';
 const UsedProductPage = () => {
 
     
-    const condition = 'Used'
+      
+    const key = 'productCondition'
+    const value = 'Used'
+
     const {data=[] , refetch}=useQuery({
-      queryKey:["condition"],
+      queryKey:[key,value],
       queryFn:async ()=>{
-        const res = await fetch(`http://localhost:5000/product?condition=${condition}`)
+        const res = await fetch(`http://localhost:5000/product?key=${key}&value=${value}`)
         const data = res.json();
         return data;
       }
     })
 
     const usedProductData = data.data;
-    // console.log(usedProductData);
+    console.log(usedProductData);
 
 
     return (

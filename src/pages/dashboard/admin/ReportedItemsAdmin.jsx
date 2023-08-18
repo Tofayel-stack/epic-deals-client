@@ -1,77 +1,27 @@
+import React from 'react';
 
-import { useQuery } from "react-query";
-import BigSpinner from "../../../components/BigSpinner";
+const ReportedItemsAdmin = () => {
 
-import { AiOutlineDelete } from 'react-icons/ai';
-import { MdVerifiedUser } from 'react-icons/md';
-import { toast } from "react-hot-toast";
+        // get all seller data from backend 
 
+        const url = 'http://localhost:5000/typeOfUser?type=Seller'
 
-const AllSeller = () => {
+        const { data=[],isLoading ,refetch}=useQuery({
+            queryKey:[url],
+            queryFn: async() => {
+                const res = await fetch(url)
+                const data = res.json()
+                return data
+            }    
+        })
+        const allSeller = data?.data;
+    
+        console.log(allSeller);
+    
 
-    // get all seller data from backend 
-
-    const sellerURL = 'http://localhost:5000/typeOfUser?type=Seller'
-
-    const { data=[],isLoading ,refetch}=useQuery({
-        queryKey:[sellerURL],
-        queryFn: async() => {
-            const res = await fetch(sellerURL)
-            const data = res.json()
-            return data
-        }    
-    })
-    const allSeller = data?.data;
-
-    console.log(allSeller);
-
-
-    // verify this seller with this function
-    const verifySeller = (id) =>{
-
-            fetch(`http://localhost:5000/verifyUser?id=${id}`,{
-                method:'PUT',
-                headers: {
-                    "Content-Type": "application/json"
-                  },
-            })
-            .then(res => res.json())
-            .then(result => {
-                console.log(result)
-                toast.success('Seller verified')
-                refetch()
-            })
-    }
-
-
-    const handleDeleteUser = (id) => {
-        
-        const confirm = window.confirm('Are U sure to Delete This seller?')
-        
-        if(confirm){
-            fetch(`http://localhost:5000/user?id=${id}`,{
-                method:'DELETE',
-            })
-            .then(res => res.json())
-            .then(result => {
-                console.log(result)
-                toast.success('Deleted user')
-                refetch()
-            })
-        }
-    }
-
-
-
-
-
-
-    if(isLoading){
-        return <BigSpinner></BigSpinner>
-    }
 
     return (
-              <div>
+               <div>
              <h1 className="p-8 text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">All of my <span className="text-amber-500">Sellers</span></h1>
             {/* table  */}
             <div>
@@ -150,4 +100,4 @@ const AllSeller = () => {
     );
 };
 
-export default AllSeller;
+export default ReportedItemsAdmin;

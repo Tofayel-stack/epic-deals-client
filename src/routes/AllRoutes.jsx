@@ -5,7 +5,7 @@ import DashboardLayout from "../layout/DashboardLayout";
 import Blogs from "../pages/blogs/Blogs";
 import AllSeller from "../pages/dashboard/admin/AllSeller";
 import AllBuyers from "../pages/dashboard/admin/AllBuyers";
-import ReportedItems from "../pages/dashboard/admin/ReportedItems";
+import ReportedItems from "../pages/dashboard/admin/ReportedItemsAdmin";
 import MyOrder from "../pages/dashboard/regularUser/MyOrder";
 import AddProduct from "../pages/dashboard/seller/AddProduct";
 import MyBuyers from "../pages/dashboard/seller/MyBuyers";
