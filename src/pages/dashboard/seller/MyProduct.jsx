@@ -10,6 +10,7 @@ const MyProduct = () => {
 
     const {user}= useContext(AuthContext)
 
+    // get all product of a seller 
     const { data=[],isLoading,refetch }=useQuery({
         queryKey:[user?.email],
         queryFn: async() => {
@@ -37,6 +38,27 @@ const MyProduct = () => {
             }
         })
     }
+
+// delete a specific product form a seller product 
+    const handleDeleteProduct =(id)=>{
+        const confirm = window.confirm("wanna delete ?")
+        if(confirm){
+            fetch(`http://localhost:5000/product?id=${id}`,{
+                method:'DELETE',
+            })
+            .then(res => res.json())
+            .then(result => {
+                if(result.success){
+                    toast.success('product deleted ! ')
+                    refetch()
+                }
+               
+            })
+        }
+        
+    }
+
+
 
 
     if(isLoading){
@@ -96,7 +118,7 @@ const MyProduct = () => {
                                         </td>
 
                                         <td>
-                                            <button className='btn btn-xs text-red-500'><AiOutlineDelete/></button>
+                                            <button className='btn btn-xs text-red-500'><AiOutlineDelete onClick={()=>handleDeleteProduct(product._id)} /></button>
                                             {
                                               !product.addOnHotDeals && <button onClick={()=>handleHotDeals(product._id)} className='btn btn-xs '>add to hot-deals</button>
                                             }

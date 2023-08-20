@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import BigSpinner from "../../../components/BigSpinner";
 
 import { AiOutlineDelete } from 'react-icons/ai';
+import { toast } from "react-hot-toast";
 
 
 
@@ -10,7 +11,7 @@ const AllBuyers = () => {
 
     const buyerURL = 'http://localhost:5000/typeOfUser?type=Buyer'
 
-    const { data=[],isLoading }=useQuery({
+    const { data=[],isLoading,refetch}=useQuery({
         queryKey:[buyerURL],
         queryFn: async() => {
             const res = await fetch(buyerURL)
@@ -20,7 +21,27 @@ const AllBuyers = () => {
     })
     const allBuyer = data?.data;
 
-    console.log(allBuyer);
+ 
+// delete a specific buyer id  form a admin dashboard.... 
+const handleDeleteBuyer =(id)=>{
+    const confirm = window.confirm("wanna delete ?")
+    if(confirm){
+        fetch(`http://localhost:5000/user?id=${id}`,{
+            method:'DELETE',
+        })
+        .then(res => res.json())
+        .then(result => {
+            console.log(result);
+            if(result.success){
+                toast.success('user deleted ! ')
+                refetch()
+            }
+           
+        })
+    }
+    
+}
+
 
 
 
@@ -79,7 +100,7 @@ const AllBuyers = () => {
 
                                   
                                    <td>
-                                       <button className='btn btn-xs text-red-500 text-xl'><AiOutlineDelete/></button> 
+                                       <button className='btn btn-xs text-red-500 text-xl'><AiOutlineDelete onClick={()=>handleDeleteBuyer(buyer._id)}/></button> 
                                        
                                    </td>
                                </tr>

@@ -33,7 +33,9 @@ const DashboardLayout = () => {
                 </div> 
                 <div className="drawer-side">
                     <label htmlFor="dashSideNav" className="drawer-overlay"></label> 
+                    
                     <ul className="menu p-4 w-80 h-full bg-base-200  text-amber-600 font-semiboldP">
+                    <span className='text-zinc-500 font-semibold text-xl'> {userType} Panel</span>
                     {/* Sidebar content here */}
                     
                     {
