@@ -9,6 +9,7 @@ import { toast } from "react-hot-toast";
 
 const AllBuyers = () => {
 
+    // this is a dynamic api in server . will work depend on query form the url ..
     const buyerURL = 'http://localhost:5000/typeOfUser?type=Buyer'
 
     const { data=[],isLoading,refetch}=useQuery({

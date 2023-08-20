@@ -2,10 +2,11 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { MdOutlineRestore } from 'react-icons/md';
+import { toast } from 'react-hot-toast';
 
 const ReportedItemsAdmin = () => {
 
-        // get all reported product data from backend 
+        // get all reported product data from backend (dynamic api depend on url , key and value)
 
         const key = 'reportedItem'
         const value = true
@@ -20,6 +21,25 @@ const ReportedItemsAdmin = () => {
   
         const reportedItemsData = reportedItems.data;
 
+         // delete a specific reported  product form a admin dashboard.... 
+            const handleDeleteProduct =(id)=>{
+                const confirm = window.confirm("wanna delete ?")
+                if(confirm){
+                    fetch(`http://localhost:5000/product?id=${id}`,{
+                        method:'DELETE',
+                    })
+                    .then(res => res.json())
+                    .then(result => {
+                        console.log(result);
+                        if(result.success){
+                            toast.success('user deleted ! ')
+                            refetch()
+                        }
+                    
+                    })
+                }
+                
+            }
 
     return (
                <div>
@@ -71,7 +91,7 @@ const ReportedItemsAdmin = () => {
 
                                        
                                         <td>
-                                            <button title="Delete" onClick={()=>handleDeleteUser(product._id)} className='btn btn-xs text-red-500 text-xl'><AiOutlineDelete/></button> 
+                                            <button title="Delete" onClick={()=>handleDeleteProduct(product._id)} className='btn btn-xs text-red-500 text-xl'><AiOutlineDelete/></button> 
                                             <button title="remove report"  className='btn btn-xs text-red-500 text-xl'><MdOutlineRestore/></button> 
 
                                             
