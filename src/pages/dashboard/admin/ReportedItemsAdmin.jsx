@@ -22,24 +22,47 @@ const ReportedItemsAdmin = () => {
         const reportedItemsData = reportedItems.data;
 
          // delete a specific reported  product form a admin dashboard.... 
-            const handleDeleteProduct =(id)=>{
-                const confirm = window.confirm("wanna delete ?")
-                if(confirm){
-                    fetch(`http://localhost:5000/product?id=${id}`,{
-                        method:'DELETE',
-                    })
-                    .then(res => res.json())
-                    .then(result => {
-                        console.log(result);
-                        if(result.success){
-                            toast.success('product deleted ! ')
-                            refetch()
-                        }
-                    
-                    })
-                }
+        const handleDeleteProduct =(id)=>{
+            const confirm = window.confirm("wanna delete ?")
+            if(confirm){
+                fetch(`http://localhost:5000/product?id=${id}`,{
+                    method:'DELETE',
+                })
+                .then(res => res.json())
+                .then(result => {
+                    console.log(result);
+                    if(result.success){
+                        toast.success('product deleted ! ')
+                        refetch()
+                    }
                 
-            }
+                })
+            }   
+        }
+
+
+        // restore report product removing report ( by update the object )
+        const handleRestoreProduct=(id)=>{
+            const updateInfo = { reportedItem : false };
+            fetch(`http://localhost:5000/product/${id}`,{
+                method:"put",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify(updateInfo)
+            })
+            .then(res => res.json())
+            .then(result => {
+                if(result.success){
+                    toast.success('product restored ...😊')
+                    refetch()
+                }
+            })
+        }
+
+
+
+
 
     return (
                <div>
@@ -92,7 +115,7 @@ const ReportedItemsAdmin = () => {
                                        
                                         <td>
                                             <button title="Delete" onClick={()=>handleDeleteProduct(product._id)} className='btn btn-xs text-red-500 text-xl'><AiOutlineDelete/></button> 
-                                            <button title="remove report"  className='btn btn-xs text-red-500 text-xl'><MdOutlineRestore/></button> 
+                                            <button title="remove report"  className='btn btn-xs text-red-500 text-xl'><MdOutlineRestore onClick={()=>handleRestoreProduct(product._id)} /></button> 
 
                                             
                                         </td>

@@ -26,7 +26,7 @@ const ProductDetails = () => {
       setItem(previousItemofLocalStorageParsed || []);
     }, []);
   
-    const addtoCart = (pro) => {
+    const addToCart = (pro) => {
       // console.log(pro);
       const previousItemofLocalStorage = localStorage.getItem("products");
       const previousItemofLocalStorageParsed = JSON.parse(
@@ -114,7 +114,7 @@ const ProductDetails = () => {
                     
 
                     <button
-                        onClick={() => addtoCart(singleProductData)}
+                        onClick={() => addToCart(singleProductData)}
                         className={`ml-auto btn mx-2 text-white bg-amber-500 py-2 px-6 focus:outline-none hover:bg-slate-600 ${isProductInCart && "btn-disabled"}`}
                         disabled={isProductInCart}
                     >
