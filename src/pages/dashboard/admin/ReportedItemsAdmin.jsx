@@ -32,7 +32,7 @@ const ReportedItemsAdmin = () => {
                     .then(result => {
                         console.log(result);
                         if(result.success){
-                            toast.success('user deleted ! ')
+                            toast.success('product deleted ! ')
                             refetch()
                         }
                     
