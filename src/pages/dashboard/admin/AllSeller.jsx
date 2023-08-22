@@ -73,6 +73,7 @@ const AllSeller = () => {
     return (
               <div>
              <h1 className="p-8 text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">All of my <span className="text-amber-500">Sellers</span></h1>
+             <span className='mx-8 font-semibold text-slate-400'>Total Seller ({allSeller?.length}) </span>
             {/* table  */}
             <div>
                 <div className="overflow-x-auto">

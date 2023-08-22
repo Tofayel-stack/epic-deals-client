@@ -1,39 +1,43 @@
+import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 
 const MyOrder = () => {
 
     // get all data of (added on cart .) local storage 
-    const orderIteam = localStorage.getItem('products')
-    const cartProduct = JSON.parse(orderIteam)
+    const orderItem = localStorage.getItem('products')
+    const cartProduct = JSON.parse(orderItem)
 
-    const myfun = (product)=>{
+    console.log(cartProduct);
+
+    const deleteFun = (product)=>{
         const confirm = window.confirm('Are u sure ? ')
 
         if(confirm){
-        // Step 3: Find the index of the object you want to remove (for example, object with id: 2) 
-   
+        // Find the index of the object you want to remove 
         const indexToRemove = cartProduct.findIndex(obj =>  obj.id === product.id);
-        console.log(indexToRemove);
 
         if (indexToRemove !== -1) {
-            // Step 4: Use the splice() method to remove the object from the array ( 1 elements will remve from  indxtoRemove)
+            // Use the splice() method to remove the object from the array ( 1 elements will remove from  index to Remove)
             cartProduct.splice(indexToRemove, 1); 
           
-            // Step 5: Convert the modified array back to a JSON string
+            // Convert the modified array to JSON string
             const updatedArrayString = JSON.stringify(cartProduct);
           
             // Update the localStorage with the updated JSON string
             localStorage.setItem('products', updatedArrayString);
             // reload the hole page to get the current data 
             window.location.reload();
-            console.log("removed from the array in localStorage.");
+            toast.success("removed product form cart");
           } else {
             console.log("not found in the array.");
           }
 
         }
-     
     }
+
+  
+
 
 
     if(cartProduct === null){
@@ -75,8 +79,8 @@ const MyOrder = () => {
                             <td className="text-red-500">{product.id}</td>
                             <td>{product.price}</td>
                             <td>
-                                <button className="btn btn-xs">Pay Now</button>
-                                <button onClick={()=>myfun(product)}  className="btn btn-xs">delete</button>
+                                <button className="btn btn-xs"><Link to={`/dashboard/regular/paymentRoute/${product.id}`}>Pay</Link></button>
+                                <button onClick={()=>deleteFun(product)}  className="btn btn-xs">delete</button>
                             </td>
     
                         </tr>)

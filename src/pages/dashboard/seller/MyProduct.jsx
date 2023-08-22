@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import { AuthContext } from '../../../context/AuthContextElements';
 import BigSpinner from '../../../components/BigSpinner';
 import { AiOutlineDelete } from 'react-icons/ai';
+import { BiMessageSquareAdd } from 'react-icons/bi';
 import { toast } from 'react-hot-toast';
 
 const MyProduct = () => {
@@ -58,6 +59,11 @@ const MyProduct = () => {
         
     }
 
+// maintain stock by triggering product quantity
+    const handleProductQuantity=()=>{
+        alert('coming soon !')
+    }
+
 
 
 
@@ -67,17 +73,19 @@ const MyProduct = () => {
     return (
         <div>
              <h1 className="p-8 text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl"> All of my <span className="text-amber-500">Products</span></h1>
+             <span className='mx-8 font-semibold text-slate-400'>Total product ({sellingProduct?.length}) </span>
             {/* table  */}
             <div>
                 <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
-                    <thead>
-                    <tr className="bg-zinc-200 text-amber-600 drop-shadow-lg">
+                    <thead className="sticky top-0 bg-zinc-200 text-amber-600 drop-shadow-lg">
+                    <tr>
                         
                         <th>Product name</th>
                         <th>Condition</th>
                         <th>Price</th>
+                        <th>In Stock</th>
                         <th className='hidden lg:block'>Details</th>
                         <th>Action</th>
                     </tr>
@@ -111,6 +119,9 @@ const MyProduct = () => {
                                         <td>{product.productCondition}</td>
 
                                         <td>TK: {product.price}</td>
+                                        <td>
+                                            <div className='font-semibold text-green-500'>10 Ps &nbsp;<BiMessageSquareAdd onClick={()=>handleProductQuantity()} className='inline text-green-800 text-xl active:bg-red-400 rounded hover:cursor-pointer'/></div>
+                                        </td>
 
                                         <td className='hidden lg:block'>
                                         {product.productDetails.slice(0,30)}
@@ -118,7 +129,7 @@ const MyProduct = () => {
                                         </td>
 
                                         <td>
-                                            <button className='btn btn-xs text-red-500'><AiOutlineDelete onClick={()=>handleDeleteProduct(product._id)} /></button>
+                                            <button className='btn btn-xs text-red-500 text-base'  onClick={()=>handleDeleteProduct(product._id)} ><AiOutlineDelete/></button>
                                             {
                                               !product.addOnHotDeals && <button onClick={()=>handleHotDeals(product._id)} className='btn btn-xs '>add to hot-deals</button>
                                             }

@@ -18,6 +18,7 @@ import UserProfile from "../pages/dashboard/UserProfile";
 import CategoriesProduct from "../pages/categoriesProduct/CategoriesProduct";
 import ProductDetails from "../pages/productDetails/ProductDetails";
 import UsedProductPage from "../pages/usedProduct/UsedProductPage";
+import Payment from "../pages/payment/Payment";
 
 
 
@@ -96,6 +97,11 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/regular/myOrder',
                 element:<MyOrder></MyOrder>
+            },
+            {
+                path:'/dashboard/regular/paymentRoute/:id',
+                loader:async({params})=> await fetch(`http://localhost:5000/product/${params.id}`),
+                element:<Payment></Payment>
             },
 
 
