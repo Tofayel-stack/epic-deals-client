@@ -50,7 +50,7 @@ const MyOrder = () => {
         <div>
             {/* title for my order */}
             <div>   <h1 className="p-8 text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">My <span className="text-amber-500">Order</span></h1></div>
-
+            <span className='mx-8 font-semibold text-slate-400'>Total product ({cartProduct?.length}) </span>
             {/* table for order list  */}
 
             <div className="overflow-x-auto">

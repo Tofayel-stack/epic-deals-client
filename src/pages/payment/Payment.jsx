@@ -15,7 +15,8 @@ const Payment = () => {
 
 
     return (
-        <div className='bg-zinc-700 grid justify-center content-center h-screen'>
+        <div className='bg-zinc-700 grid justify-center content-center h-screen' >
+            
             <div className='bg-zinc-800 p-6 mb-3 shadow-sm  shadow-orange-600 rounded text-xl text-white text-center w-full'>This is only : {productData.price} <TbCurrencyTaka className='inline text-2xl text-amber-600'/></div>
             
             <form onSubmit={handlePayment}>
