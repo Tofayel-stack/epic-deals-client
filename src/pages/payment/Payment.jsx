@@ -1,11 +1,16 @@
 import { Elements } from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 import CheckoutForm from './CheckoutForm';
+import { useLoaderData } from 'react-router-dom';
 
 const Payment = () => {
 
 
-    const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+  const product = useLoaderData()
+  console.log(product);
+
+
+    const stripePromise = loadStripe('pk_test_51NT9CXKsYUuM4tCtWLJb2eEDxsgCu5GNAvwRNndJCwNb8oPcBSABsXkIwsvjo66SqnullMD21wZ1K11DnlYtX5gr00HGNbsDub');
 
     const options = {
       mode: 'payment',
@@ -19,7 +24,7 @@ const Payment = () => {
     return (
         <div>
             <Elements stripe={stripePromise} options={options}>
-                <CheckoutForm />
+                <CheckoutForm product={product} />
             </Elements>
         </div>
     );

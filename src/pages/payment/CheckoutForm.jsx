@@ -1,7 +1,7 @@
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useState } from 'react';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({product}) => {
     const stripe = useStripe();
     const elements = useElements();
   
@@ -52,10 +52,11 @@ const CheckoutForm = () => {
     };
   
     return (
-        <form onSubmit={handleSubmit} className='flex justify-center '>
+        <form onSubmit={handleSubmit} className='flex h-screen justify-center items-center'>
             <div>
+                <h1 className='text-xl text-amber-800 font-semibold my-4'>Payment for {product.data.productName}</h1>
                 <PaymentElement className='w-80 bg-slate-400 p-3 rounded' />
-                <button className='btn btn-sm w-72 bg-amber-500 text-white' type="submit" disabled={!stripe || !elements}>
+                <button className='btn btn-sm w-80 bg-amber-500 text-white' type="submit" disabled={!stripe || !elements}>
                 Pay
                 </button>
                 {/* Show error message to your customers */}
