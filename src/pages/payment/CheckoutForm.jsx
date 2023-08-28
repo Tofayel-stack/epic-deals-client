@@ -1,62 +1,107 @@
-import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useState } from 'react';
+import { CardElement, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../context/AuthContextElements';
 
 const CheckoutForm = ({product}) => {
     const stripe = useStripe();
     const elements = useElements();
+    const {user} = useContext(AuthContext)
   
     const [errorMessage, setErrorMessage] = useState(null);
+    const [clientSecret,setClientSecret] = useState()
+    const price = product.data.price;
+
+
+
+    useEffect(()=>{
+      fetch('http://localhost:5000/create-payment-intent',{
+        method:'post',
+        headers:{'content-type':'application/json'},
+        body: JSON.stringify(price)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setClientSecret(data)
+      })
+    },[price])
   
     const handleSubmit = async (event) => {
       event.preventDefault();
-  
-      if (elements == null) {
+     
+      if (!stripe || !elements) {
         return;
       }
-  
-      // Trigger form validation and wallet collection
-      const {error: submitError} = await elements.submit();
-      if (submitError) {
-        // Show error to your customer
-        setErrorMessage(submitError.message);
-        return;
-      }
-  
-      // Create the PaymentIntent and obtain clientSecret from your server endpoint
-      const res = await fetch('/create-intent', {
-        method: 'POST',
+     
+
+    const card = elements.getElement(CardElement);
+    if (card == null) {
+      console.log('card null');
+      return;
+    }
+
+
+
+      // Use your card Element with other Stripe.js APIs
+      const {error, paymentMethod} = await stripe.createPaymentMethod({
+        type: 'card',
+        card,
       });
-  
-      const {client_secret: clientSecret} = await res.json();
-  
-      const {error} = await stripe.confirmPayment({
-        //`Elements` instance that was used to create the Payment Element
-        elements,
-        clientSecret,
-        confirmParams: {
-          return_url: 'https://example.com/order/123/complete',
+      
+    if (error) {
+      console.log('[error]', error);
+      setErrorMessage(error.message)
+    } else {
+      console.log('[PaymentMethod]', paymentMethod);
+      setErrorMessage('')
+    }
+
+    const {paymentIntent, error:confirmError} = await stripe.confirmCardPayment(
+      clientSecret,
+      {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: user.displayName  || 'anonymous',
+            email: user.email || 'unknown'
+          },
         },
-      });
-  
-      if (error) {
-        // This point will only be reached if there is an immediate error when
-        // confirming the payment. Show error to your customer (for example, payment
-        // details incomplete)
-        setErrorMessage(error.message);
-      } else {
-        // Your customer will be redirected to your `return_url`. For some payment
-        // methods like iDEAL, your customer will be redirected to an intermediate
-        // site first to authorize the payment, then redirected to the `return_url`.
-        setErrorMessage('')
-      }
+      },
+    );
+
+    if(confirmError){
+      // setErrorMessage(confirmError.message)
+      console.log(confirmError);
+    }else{
+      console.log(paymentIntent);
+    }
+
+
+
     };
   
     return (
         <form onSubmit={handleSubmit} className='flex h-screen justify-center items-center'>
             <div>
                 <h1 className='text-xl text-amber-800 font-semibold my-4'>Payment for {product.data.productName}</h1>
-                <PaymentElement className='w-80 bg-slate-400 p-3 rounded' />
-                <button className='btn btn-sm w-80 bg-amber-500 text-white' type="submit" disabled={!stripe || !elements}>
+                <h2 className='text-base text-amber-400'>you gonna pay {product.data.price}</h2>
+                 <CardElement className='w-full h-80 bg-zinc-100 p-4 rounded'
+                      options={{
+                        style: {
+                          base: {
+                            fontSize: '16px',
+                            color: '#424770',
+                            '::placeholder': {
+                              color: '#aab7c4',
+                            },
+                          },
+                          invalid: {
+                            color: '#9e2146',
+                          },
+                        },
+                      }}
+                    />
+                <button className='btn btn-sm w-80 bg-amber-500 text-white' type="submit" disabled={!stripe || !clientSecret}>
                 Pay
                 </button>
                 {/* Show error message to your customers */}
