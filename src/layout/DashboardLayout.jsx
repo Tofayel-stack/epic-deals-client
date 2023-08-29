@@ -55,6 +55,7 @@ const DashboardLayout = () => {
                     {
                         userType === 'Buyer' && <>
                                 <li><Link to='/dashboard/regular/myOrder'>My Order</Link></li>
+                                <li><Link to='/dashboard/regular/myCartList'>My Cart List</Link></li>
                         </>
                     }
 

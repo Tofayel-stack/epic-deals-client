@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContextElements';
 import { toast } from 'react-hot-toast';
 
+// here will add style css
+
 const CheckoutForm = ({product}) => {
     const stripe = useStripe();
     const elements = useElements();
@@ -105,7 +107,7 @@ const CheckoutForm = ({product}) => {
       })
       .then(res => res.json())
       .then(data =>{
-        if(acknowledged){
+        if(data.acknowledged){
           toast.success('payment done 😊')
           console.log(data);
         }
@@ -141,6 +143,7 @@ const CheckoutForm = ({product}) => {
                         },
                       }}
                     />
+                  
                 <button className='btn btn-sm w-80 bg-amber-500 text-white' type="submit" disabled={!stripe || !clientSecret || processing}>
                 Pay
                 </button>

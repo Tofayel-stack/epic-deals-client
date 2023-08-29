@@ -6,7 +6,7 @@ import Blogs from "../pages/blogs/Blogs";
 import AllSeller from "../pages/dashboard/admin/AllSeller";
 import AllBuyers from "../pages/dashboard/admin/AllBuyers";
 import ReportedItems from "../pages/dashboard/admin/ReportedItemsAdmin";
-import MyOrder from "../pages/dashboard/regularUser/MyOrder";
+import MyCartList from "../pages/dashboard/regularUser/MyCartList";
 import AddProduct from "../pages/dashboard/seller/AddProduct";
 import MyBuyers from "../pages/dashboard/seller/MyBuyers";
 import MyProduct from "../pages/dashboard/seller/MyProduct";
@@ -19,6 +19,7 @@ import CategoriesProduct from "../pages/categoriesProduct/CategoriesProduct";
 import ProductDetails from "../pages/productDetails/ProductDetails";
 import UsedProductPage from "../pages/usedProduct/UsedProductPage";
 import Payment from "../pages/payment/Payment";
+import MyOrder from "../pages/dashboard/regularUser/MyOrder";
 
 
 
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
             // regular user route 
 
 
+            {
+                path:'/dashboard/regular/myCartList',
+                element:<MyCartList></MyCartList>
+            },
             {
                 path:'/dashboard/regular/myOrder',
                 element:<MyOrder></MyOrder>

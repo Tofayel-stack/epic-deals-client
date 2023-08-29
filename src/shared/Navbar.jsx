@@ -97,7 +97,7 @@ const Navbar = () => {
               {
               user && userType === 'Buyer' && 
                 <Link
-                to='/dashboard/regular/myOrder'
+                to='/dashboard/regular/myCartList'
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-amber-600"
               >
                 Dashboard
