@@ -1,7 +1,7 @@
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { ImFacebook2 } from 'react-icons/im';
 import { BsGithub } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContextElements';
@@ -16,6 +16,10 @@ const SignIn = () => {
     const {userLogin,loading,setLoading} = useContext(AuthContext)
     const { register, handleSubmit, reset,formState: { errors } } = useForm();
 
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+
     const handleSignIn = (data) => {
         const {email,password} = data
 
@@ -23,17 +27,19 @@ const SignIn = () => {
         userLogin(email,password)
         .then((userCredential) => {
             const user = userCredential.user;
-            console.log(user);
+            // console.log(user);
             toast.success('successfully log In')
             setLoading(false)
             reset()
+            navigate(from, { replace: true })
+
            
         //    navigate(from,{replace:true})
           })
           .catch((error) => {
             const errorMessage = error.message;
             toast.error(errorMessage)
-            console.log(errorMessage);
+            // console.log(errorMessage);
             setLoading(false)
             reset()
             

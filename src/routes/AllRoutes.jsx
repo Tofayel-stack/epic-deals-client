@@ -20,6 +20,7 @@ import ProductDetails from "../pages/productDetails/ProductDetails";
 import UsedProductPage from "../pages/usedProduct/UsedProductPage";
 import Payment from "../pages/payment/Payment";
 import MyOrder from "../pages/dashboard/regularUser/MyOrder";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<DashboardLayout></DashboardLayout>,
+        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children:[
             {
                 path:'/dashboard/userProfile',
