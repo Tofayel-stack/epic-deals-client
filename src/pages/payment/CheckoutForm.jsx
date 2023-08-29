@@ -109,7 +109,7 @@ const CheckoutForm = ({product}) => {
       .then(data =>{
         if(data.acknowledged){
           toast.success('payment done 😊')
-          console.log(data);
+          // console.log(data);
         }
         
 

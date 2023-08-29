@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 
 const MyCartList = () => {
+
+ 
 
     // get all data of (added on cart .) local storage 
     const orderItem = localStorage.getItem('products')
@@ -42,7 +45,7 @@ const MyCartList = () => {
 
     if(cartProduct === null){
             return <div>
-                <div>   <h1 className="p-8 text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">My <span className="text-amber-500">Order</span></h1></div>
+                <div>   <h1 className="p-8 text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">My <span className="text-amber-500">Cart Product List</span></h1></div>
                 <div className="flex items-center justify-center h-full text-4xl text-zinc-500">No Order Yet</div>
             </div>
     }
@@ -79,7 +82,12 @@ const MyCartList = () => {
                             <td className="text-red-500">{product.id}</td>
                             <td>{product.price}</td>
                             <td>
-                                <button className="btn btn-xs"><Link to={`/dashboard/regular/paymentRoute/${product.id}`}>Pay</Link></button>
+                                <button 
+                                className={`btn btn-xs`} 
+                                >
+                                    <Link to={`/dashboard/regular/paymentRoute/${product.id}`}>Pay</Link>
+                                </button>
+
                                 <button onClick={()=>deleteFun(product)}  className="btn btn-xs">delete</button>
                             </td>
     

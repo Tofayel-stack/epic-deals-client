@@ -11,7 +11,7 @@ const MyOrder = () => {
         fetch(`http://localhost:5000/paidOrder?buyerEmail=${user.email}`)
         .then(res => res.json())
         .then(data=> {
-            console.log(data.data);
+            // console.log(data.data);
             setProducts(data.data)
         })
     },[])
