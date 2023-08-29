@@ -1,6 +1,7 @@
 import { CardElement, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContextElements';
+import { toast } from 'react-hot-toast';
 
 const CheckoutForm = ({product}) => {
     const stripe = useStripe();
@@ -84,6 +85,35 @@ const CheckoutForm = ({product}) => {
     if(paymentIntent.status === 'succeeded'){
      
       setTransactionID(paymentIntent.id)
+      // save the paid data in database
+
+      const payment = {
+          buyerName: user.displayName,
+          buyerEmail: user.email,
+          transactionID: paymentIntent.id,
+          date: new Date(),
+          purchasedProduct: productData,
+          status:'service is pending ! '
+
+      }
+
+
+      fetch('http://localhost:5000/paidProduct',{
+        method:'post',
+        headers:{'content-type':'application/json'},
+        body:JSON.stringify(payment)
+      })
+      .then(res => res.json())
+      .then(data =>{
+        if(acknowledged){
+          toast.success('payment done 😊')
+          console.log(data);
+        }
+        
+
+      })
+
+
     }
 
 
