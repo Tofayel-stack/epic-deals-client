@@ -9,22 +9,26 @@ const CheckoutForm = ({product}) => {
   
     const [errorMessage, setErrorMessage] = useState(null);
     const [clientSecret,setClientSecret] = useState()
-    const price = product.data.price;
+    const [processing,setProcessing] = useState(false)
+    const [transactionID,setTransactionID] = useState('')
 
 
 
-    useEffect(()=>{
-      fetch('http://localhost:5000/create-payment-intent',{
-        method:'post',
-        headers:{'content-type':'application/json'},
-        body: JSON.stringify(price)
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setClientSecret(data)
-      })
-    },[price])
+
+  const productData = product.data;
+  useEffect(()=>{
+    fetch('http://localhost:5000/create-payment-intent',{
+      method:'post',
+      headers:{'content-type':'application/json'},
+      body: JSON.stringify(productData)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      setClientSecret(data.clientSecret)
+    })
+  },[productData])
+  
   
     const handleSubmit = async (event) => {
       event.preventDefault();
@@ -56,6 +60,9 @@ const CheckoutForm = ({product}) => {
       setErrorMessage('')
     }
 
+
+    setProcessing(true)
+
     const {paymentIntent, error:confirmError} = await stripe.confirmCardPayment(
       clientSecret,
       {
@@ -72,8 +79,11 @@ const CheckoutForm = ({product}) => {
     if(confirmError){
       // setErrorMessage(confirmError.message)
       console.log(confirmError);
-    }else{
-      console.log(paymentIntent);
+    }
+    setProcessing(false)
+    if(paymentIntent.status === 'succeeded'){
+     
+      setTransactionID(paymentIntent.id)
     }
 
 
@@ -101,11 +111,13 @@ const CheckoutForm = ({product}) => {
                         },
                       }}
                     />
-                <button className='btn btn-sm w-80 bg-amber-500 text-white' type="submit" disabled={!stripe || !clientSecret}>
+                <button className='btn btn-sm w-80 bg-amber-500 text-white' type="submit" disabled={!stripe || !clientSecret || processing}>
                 Pay
                 </button>
                 {/* Show error message to your customers */}
                 {errorMessage && <div>{errorMessage}</div>}
+                {transactionID && <div className='text-green-500'>Payment successful</div>}
+                {transactionID && <div className='text-slate-500 font-semibold'>Transaction ID : <span className='text-amber-700 text-sm'>{transactionID}</span></div>}
             </div>
         </form>
     );
