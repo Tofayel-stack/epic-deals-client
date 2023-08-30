@@ -27,7 +27,6 @@ const ProductDetails = () => {
     }, []);
   
     const addToCart = (pro) => {
-      // console.log(pro);
       const previousItemofLocalStorage = localStorage.getItem("products");
       const previousItemofLocalStorageParsed = JSON.parse(
         previousItemofLocalStorage

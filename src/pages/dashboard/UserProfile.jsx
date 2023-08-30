@@ -15,7 +15,7 @@ const UserProfile = () => {
             return data
         }    
     })
-   console.log(userProfile);
+//    console.log(userProfile);
 
 
    

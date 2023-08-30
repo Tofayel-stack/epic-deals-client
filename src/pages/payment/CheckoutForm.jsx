@@ -27,7 +27,6 @@ const CheckoutForm = ({product}) => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       setClientSecret(data.clientSecret)
     })
   },[productData])
@@ -43,7 +42,6 @@ const CheckoutForm = ({product}) => {
 
     const card = elements.getElement(CardElement);
     if (card == null) {
-      console.log('card null');
       return;
     }
 
@@ -56,10 +54,10 @@ const CheckoutForm = ({product}) => {
       });
       
     if (error) {
-      console.log('[error]', error);
+      // console.log('[error]', error);
       setErrorMessage(error.message)
     } else {
-      console.log('[PaymentMethod]', paymentMethod);
+      // console.log('[PaymentMethod]', paymentMethod);
       setErrorMessage('')
     }
 
@@ -81,7 +79,8 @@ const CheckoutForm = ({product}) => {
 
     if(confirmError){
       // setErrorMessage(confirmError.message)
-      console.log(confirmError);
+      // console.log(confirmError);
+      toast.error('something is error in Confirm time !!')
     }
     setProcessing(false)
     if(paymentIntent.status === 'succeeded'){

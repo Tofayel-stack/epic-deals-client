@@ -11,7 +11,7 @@ const MyCartList = () => {
     const orderItem = localStorage.getItem('products')
     const cartProduct = JSON.parse(orderItem)
 
-    console.log(cartProduct);
+    // console.log(cartProduct);
 
     const deleteFun = (product)=>{
         const confirm = window.confirm('Are u sure ? ')
@@ -33,7 +33,7 @@ const MyCartList = () => {
             window.location.reload();
             toast.success("removed product form cart");
           } else {
-            console.log("not found in the array.");
+            toast.error("not found in the array.")
           }
 
         }

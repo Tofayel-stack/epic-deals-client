@@ -19,7 +19,6 @@ const UsedProductPage = () => {
     })
 
     const usedProductData = data.data;
-    console.log(usedProductData);
 
 
     return (

@@ -32,7 +32,7 @@ const handleDeleteBuyer =(id)=>{
         })
         .then(res => res.json())
         .then(result => {
-            console.log(result);
+            // console.log(result);
             if(result.success){
                 toast.success('user deleted ! ')
                 refetch()

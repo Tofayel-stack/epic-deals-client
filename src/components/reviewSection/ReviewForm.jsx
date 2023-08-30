@@ -28,7 +28,7 @@ const ReviewForm = ({singleProductData,refetch}) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             form.reset()
             toast.success('Review added')
             refetch()

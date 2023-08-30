@@ -23,7 +23,7 @@ const AllSeller = () => {
     })
     const allSeller = data?.data;
 
-    console.log(allSeller);
+    // console.log(allSeller);
 
 
     // verify this seller with this function
@@ -37,7 +37,7 @@ const AllSeller = () => {
             })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
+                // console.log(result)
                 toast.success('Seller verified')
                 refetch()
             })
@@ -54,7 +54,7 @@ const AllSeller = () => {
             })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
+                // console.log(result)
                 toast.success('Deleted user')
                 refetch()
             })

@@ -27,19 +27,15 @@ const SignIn = () => {
         userLogin(email,password)
         .then((userCredential) => {
             const user = userCredential.user;
-            // console.log(user);
             toast.success('successfully log In')
             setLoading(false)
             reset()
             navigate(from, { replace: true })
 
-           
-        //    navigate(from,{replace:true})
           })
           .catch((error) => {
             const errorMessage = error.message;
             toast.error(errorMessage)
-            // console.log(errorMessage);
             setLoading(false)
             reset()
             

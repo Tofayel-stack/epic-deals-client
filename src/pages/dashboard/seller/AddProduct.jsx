@@ -57,7 +57,7 @@ const AddProduct = () => {
                 } 
               })
               .catch(error => {
-                console.error('Error:', error)
+                // console.error('Error:', error)
                 toast.error('something error in img upload')
               });
 
@@ -79,13 +79,16 @@ const AddProduct = () => {
                 .then(res => res.json())
                 .then(result => {
                     if(result.data.acknowledged){
-                            console.log(result)
+                            // console.log(result)
                             toast.success('product added done')
                             reset()
                             setButtonLoading(false)
                     }
                 })
-                .catch(error=>console.error(error))
+                .catch(error=>{
+                    // console.error(error)
+                    toast.error(error.message)
+                })
             
         }
             

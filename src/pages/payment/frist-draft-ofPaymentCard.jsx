@@ -5,7 +5,6 @@ import { TbCurrencyTaka } from 'react-icons/tb';
 const Draft = () => {
 
     const product = useLoaderData()
-    console.log(product.data);
     const productData = product.data 
 
     const handlePayment = (e)=>{

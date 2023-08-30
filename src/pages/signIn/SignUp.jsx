@@ -44,14 +44,14 @@ const handleSignUp = (data) => {
           })
           .catch(error => {
             console.error('Error:', error)
-            toast.error('somthing error in img upload fun')
+            toast.error('something error in img upload fun')
           });
     
 }
 
 
 
-//firebase all fuction 
+//firebase all function 
 const registerAndSaveUser = (userName,email,password,userType,uploadedPhotoURL) =>{
 
     
@@ -62,7 +62,7 @@ const registerAndSaveUser = (userName,email,password,userType,uploadedPhotoURL) 
                     updatesUserInfo(userName) //update name in firebase
                     toast.success('user registered')
 
-                    // call MongoDB fuction
+                    // call MongoDB function
                     const userData = {userName,email,userType,uploadedPhotoURL}
                     saveUserData(userData)
                     
@@ -85,14 +85,15 @@ const registerAndSaveUser = (userName,email,password,userType,uploadedPhotoURL) 
         })
         .then(res => res.json())
         .then(data => {
-            // console.log(data);
             setLoading(false)
             reset()
             toast.success("Save data in Database Successfully")
             navigate('/')
 
         })
-        .catch(error=>console.error(error))
+        .catch(error=>{
+            toast.error(error.message)
+        })
     }
 
 
@@ -160,7 +161,7 @@ const registerAndSaveUser = (userName,email,password,userType,uploadedPhotoURL) 
                     <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
                 </div>
                
-                <p className="text-xs text-center sm:px-6 text-gray-400">Allready have an account?
+                <p className="text-xs text-center sm:px-6 text-gray-400">All Ready have an account?
                     <Link to='/signIn' className="underline text-gray-100">Sign In</Link>
                 </p>
             </div>
