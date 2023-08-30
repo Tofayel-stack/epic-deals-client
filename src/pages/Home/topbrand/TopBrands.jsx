@@ -18,14 +18,16 @@ const TopBrands = () => {
     ]
     return (
         
-            <section className="text-gray-800 py-36">
+            <section className="text-gray-800 py-36" >
 	<div className="container p-6 mx-auto space-y-6 lg:p-8 lg:space-y-8">
-		<h2 className="lg:text-3xl text-xl font-bold">Top Brands <span className='text-amber-600'>___________</span></h2>
+		<h2 data-aos="fade-left" className="lg:text-3xl text-xl font-bold">Top Brands <span className='text-amber-600'>___________</span></h2>
 		<div className="flex flex-wrap justify-center lg:justify-between">
 			
             {
                 brandLogo.map((logoPic,i) => 
                     <div 
+                    data-aos="fade-up"
+                    data-aos-anchor-placement="center-bottom"
                     key={i}
                     className='w-24 h-24 mx-10 my-6 fill-current md:mx-12 lg:m-0 dark:text-gray-400'
                     >

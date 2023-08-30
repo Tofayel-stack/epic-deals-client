@@ -11,7 +11,7 @@ const About = () => {
 
                 <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                     
-                    <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+                    <h2 data-aos="fade-down" data-aos-duration="400" className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
                     About <span className='text-amber-600'> Us</span> 
                     </h2>
                    
@@ -22,7 +22,7 @@ const About = () => {
 
                 <div className="xl:container m-auto px-6 text-gray-600 md:px-12 xl:px-16">
                     <div className="lg:bg-gray-50 dark:lg:bg-darker lg:p-16 rounded-[4rem] space-y-6 md:flex flex-row-reverse md:gap-6 justify-center md:space-y-0 lg:items-center">
-                        <div className="md:5/12 lg:w-1/2">
+                        <div data-aos="fade-up-left" className="md:5/12 lg:w-1/2">
                             <img
                                 src={aboutPic}
                                 alt="image"
@@ -31,7 +31,7 @@ const About = () => {
                                 height=""
                             />
                         </div>
-                        <div className="md:7/12 lg:w-1/2">
+                        <div data-aos="fade-down-right" className="md:7/12 lg:w-1/2">
                             <h2 className="text-3xl font-bold text-gray-900 md:text-4xl dark">
                                We have been a leader in top quality service at exceptionally low prices <span className="text-amber-600">since 2018</span>
                             </h2>
@@ -68,7 +68,10 @@ const About = () => {
                 </div>
             </div>
 
-            <section className="md:bg-gray-50 rounded-[4rem] text-gray-700 py-12 lg:mx-16 px-4">
+            <section data-aos="fade-up"
+                    data-aos-duration="700" 
+                    data-aos-delay="50"
+                    className="md:bg-gray-50 rounded-[4rem] text-gray-700 py-12 lg:mx-16 px-4">
                 <div tabIndex={0} aria-label="group of cards" className="focus:outline-none px-4 lg:px-0">
                     <div className="mx-auto container flex flex-wrap px-2 lg:px-24">
                         <div tabIndex={0} aria-label="card 1" className="focus:outline-none flex sm:w-full md:w-1/2 lg:border-r-2 md:border-r-2 sm:border-r-0 border-orange-400 pb-10 lg:pt-10">

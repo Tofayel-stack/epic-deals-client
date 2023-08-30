@@ -89,7 +89,7 @@ const UsedProduct = () => {
     return (
           <div className="container m-auto py-16">
           
-          <h2 className="max-w-lg my-12 font-sans text-xl lg:text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl "> 
+          <h2 data-aos="fade-left" className="max-w-lg my-12 font-sans text-xl lg:text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl "> 
                 Used <span className='text-amber-600'>Product________</span>
                 </h2>
 

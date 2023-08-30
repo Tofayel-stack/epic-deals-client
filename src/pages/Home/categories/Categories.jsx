@@ -45,11 +45,13 @@ const Categories = () => {
         <div className=""> 
         <div className="container m-auto lg:py-8">
 
-           <h2 className="max-w-lg font-sans text-xl lg:text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl "> 
+           <h2 data-aos="fade-left" className="max-w-lg font-sans text-xl lg:text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl "> 
             Categories<span className='text-amber-600'>_________</span>
            </h2>
 
-        <div className="flex flex-wrap justify-center gap-12 mt-12">
+        <div data-aos="fade-up"
+            data-aos-duration="800"
+            className="flex flex-wrap justify-center gap-12 mt-12">
      
         {
             categoryData.map((data,i) => 

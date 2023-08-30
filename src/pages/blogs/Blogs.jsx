@@ -7,7 +7,7 @@ const Blogs = () => {
       <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
          
-          <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 data-aos="fade-down" data-aos-duration="400" className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
           Mastering the Art of Coding: Essential <span className='text-amber-600'> Programming </span> Concepts Unveiled
           </h2>
           <p className="text-sm text-gray-400">
@@ -20,7 +20,7 @@ const Blogs = () => {
 
 {/* Ques and ans  */}
 
-      <div className="max-w-screen-xl sm:mx-auto">
+      <div data-aos="zoom-out" className="max-w-screen-xl sm:mx-auto">
         <div className="grid grid-cols-1 gap-16 row-gap-8 lg:grid-cols-2">
           <div className="space-y-8">
             <div>
