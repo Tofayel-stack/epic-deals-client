@@ -55,13 +55,13 @@ const router = createBrowserRouter([
             },
             {
                 path:'/categoryProduct/:category',
-                loader:async({params})=>await fetch(`http://localhost:5000/categoryProduct/${params.category}`),
+                loader:async({params})=>await fetch(`https://epic-deals.vercel.app/categoryProduct/${params.category}`),
                 element:<CategoriesProduct></CategoriesProduct>
                 
             },
             {
                 path:'/product/:id',
-                loader:async({params})=>await fetch(`http://localhost:5000/product/${params.id}`),
+                loader:async({params})=>await fetch(`https://epic-deals.vercel.app/product/${params.id}`),
                 element: <ProductDetails></ProductDetails>
             }
                
@@ -106,7 +106,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/dashboard/regular/paymentRoute/:id',
-                loader:async({params})=> await fetch(`http://localhost:5000/product/${params.id}`),
+                loader:async({params})=> await fetch(`https://epic-deals.vercel.app/product/${params.id}`),
                 element:<Payment></Payment>
             },
 

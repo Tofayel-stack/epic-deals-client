@@ -9,7 +9,7 @@ const Review = ({singleProductData}) => {
     const {data,refetch}=useQuery({
         queryKey:[singleProductData],
         queryFn:async ()=> {
-            const res = await fetch(`http://localhost:5000/product-comment?id=${singleProductData._id}`)
+            const res = await fetch(`https://epic-deals.vercel.app/product-comment?id=${singleProductData._id}`)
             const data = res.json()
             return data;
         }

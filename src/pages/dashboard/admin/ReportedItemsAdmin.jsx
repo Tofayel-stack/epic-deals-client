@@ -13,7 +13,7 @@ const ReportedItemsAdmin = () => {
         const {data:reportedItems=[] , refetch}=useQuery({
           queryKey:[key,value],
           queryFn:async ()=>{
-            const res = await fetch(`http://localhost:5000/product?key=${key}&value=${value}`)
+            const res = await fetch(`https://epic-deals.vercel.app/product?key=${key}&value=${value}`)
             const data = res.json();
             return data;
           }
@@ -25,7 +25,7 @@ const ReportedItemsAdmin = () => {
         const handleDeleteProduct =(id)=>{
             const confirm = window.confirm("wanna delete ?")
             if(confirm){
-                fetch(`http://localhost:5000/product?id=${id}`,{
+                fetch(`https://epic-deals.vercel.app/product?id=${id}`,{
                     method:'DELETE',
                 })
                 .then(res => res.json())
@@ -44,7 +44,7 @@ const ReportedItemsAdmin = () => {
         // restore report product removing report ( by update the object )
         const handleRestoreProduct=(id)=>{
             const updateInfo = { reportedItem : false };
-            fetch(`http://localhost:5000/product/${id}`,{
+            fetch(`https://epic-deals.vercel.app/product/${id}`,{
                 method:"put",
                 headers: {
                     "Content-Type": "application/json"

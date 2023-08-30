@@ -7,7 +7,7 @@ const useUserType = (email) => {
 
     useEffect(()=>{
         if(email){
-            fetch(`http://localhost:5000/user?email=${email}`)
+            fetch(`https://epic-deals.vercel.app/user?email=${email}`)
             .then(res => res.json())
             .then(data =>{
                 //result from server was in a data{}

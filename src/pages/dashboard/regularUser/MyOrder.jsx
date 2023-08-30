@@ -8,7 +8,7 @@ const MyOrder = () => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/paidOrder?buyerEmail=${user.email}`)
+        fetch(`https://epic-deals.vercel.app/paidOrder?buyerEmail=${user.email}`)
         .then(res => res.json())
         .then(data=> {
             // console.log(data.data);

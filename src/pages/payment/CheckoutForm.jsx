@@ -20,7 +20,7 @@ const CheckoutForm = ({product}) => {
 
   const productData = product.data;
   useEffect(()=>{
-    fetch('http://localhost:5000/create-payment-intent',{
+    fetch('https://epic-deals.vercel.app/create-payment-intent',{
       method:'post',
       headers:{'content-type':'application/json'},
       body: JSON.stringify(productData)
@@ -99,7 +99,7 @@ const CheckoutForm = ({product}) => {
       }
 
 
-      fetch('http://localhost:5000/paidProduct',{
+      fetch('https://epic-deals.vercel.app/paidProduct',{
         method:'post',
         headers:{'content-type':'application/json'},
         body:JSON.stringify(payment)

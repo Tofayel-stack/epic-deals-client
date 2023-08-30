@@ -76,7 +76,7 @@ const registerAndSaveUser = (userName,email,password,userType,uploadedPhotoURL) 
 
     // user Data save to database 
     const saveUserData=(userData)=>{
-        const url = 'http://localhost:5000/createUser';
+        const url = 'https://epic-deals.vercel.app/createUser';
         fetch(url,{
             method:'post',
             headers:{"Content-Type": "application/json"},

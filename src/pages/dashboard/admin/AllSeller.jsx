@@ -11,7 +11,7 @@ const AllSeller = () => {
 
     // get all seller data from backend 
 
-    const sellerURL = 'http://localhost:5000/typeOfUser?type=Seller'
+    const sellerURL = 'https://epic-deals.vercel.app/typeOfUser?type=Seller'
 
     const { data=[],isLoading ,refetch}=useQuery({
         queryKey:[sellerURL],
@@ -29,7 +29,7 @@ const AllSeller = () => {
     // verify this seller with this function
     const verifySeller = (id) =>{
 
-            fetch(`http://localhost:5000/verifyUser?id=${id}`,{
+            fetch(`https://epic-deals.vercel.app/verifyUser?id=${id}`,{
                 method:'PUT',
                 headers: {
                     "Content-Type": "application/json"
@@ -49,7 +49,7 @@ const AllSeller = () => {
         const confirm = window.confirm('Are U sure to Delete This seller?')
         
         if(confirm){
-            fetch(`http://localhost:5000/user?id=${id}`,{
+            fetch(`https://epic-deals.vercel.app/user?id=${id}`,{
                 method:'DELETE',
             })
             .then(res => res.json())

@@ -10,7 +10,7 @@ import { toast } from "react-hot-toast";
 const AllBuyers = () => {
 
     // this is a dynamic api in server . will work depend on query form the url ..
-    const buyerURL = 'http://localhost:5000/typeOfUser?type=Buyer'
+    const buyerURL = 'https://epic-deals.vercel.app/typeOfUser?type=Buyer'
 
     const { data=[],isLoading,refetch}=useQuery({
         queryKey:[buyerURL],
@@ -27,7 +27,7 @@ const AllBuyers = () => {
 const handleDeleteBuyer =(id)=>{
     const confirm = window.confirm("wanna delete ?")
     if(confirm){
-        fetch(`http://localhost:5000/user?id=${id}`,{
+        fetch(`https://epic-deals.vercel.app/user?id=${id}`,{
             method:'DELETE',
         })
         .then(res => res.json())

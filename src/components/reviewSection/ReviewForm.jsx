@@ -19,7 +19,7 @@ const ReviewForm = ({singleProductData,refetch}) => {
             name, email , review,productID,createTime
         }
 
-        fetch(`http://localhost:5000/product-comment`,{
+        fetch(`https://epic-deals.vercel.app/product-comment`,{
             method:"post",
             headers:{
                 "Content-Type": "application/json",

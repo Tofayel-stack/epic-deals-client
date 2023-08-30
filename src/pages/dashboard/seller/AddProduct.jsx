@@ -69,7 +69,7 @@ const AddProduct = () => {
                            
             // user Data save to database 
             
-                const url = 'http://localhost:5000/addProduct';
+                const url = 'https://epic-deals.vercel.app/addProduct';
                 fetch(url,{
                     method:'post',
                     headers:{"Content-Type": "application/json"},

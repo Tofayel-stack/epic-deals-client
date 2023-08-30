@@ -53,7 +53,7 @@ const HotDealsOfTheDay = () => {
       const {data:hotDealsProduct=[],isLoading}=useQuery({
         queryKey:[key,value],
         queryFn:async ()=>{
-          const res = await fetch(`http://localhost:5000/product?key=${key}&value=${value}`)
+          const res = await fetch(`https://epic-deals.vercel.app/product?key=${key}&value=${value}`)
           const data = res.json();
           return data;
         }

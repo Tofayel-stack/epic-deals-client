@@ -15,7 +15,7 @@ const MyProduct = () => {
     const { data=[],isLoading,refetch }=useQuery({
         queryKey:[user?.email],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/sellingProduct?email=${user?.email}`)
+            const res = await fetch(`https://epic-deals.vercel.app/sellingProduct?email=${user?.email}`)
             const data = res.json()
             return data
         }    
@@ -26,7 +26,7 @@ const MyProduct = () => {
     const handleHotDeals = (id)=>{
         const updateInfo = { addOnHotDeals : true };
 
-        fetch(`http://localhost:5000/product/${id}`,{
+        fetch(`https://epic-deals.vercel.app/product/${id}`,{
             method:'put',
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify(updateInfo)
@@ -44,7 +44,7 @@ const MyProduct = () => {
     const handleDeleteProduct =(id)=>{
         const confirm = window.confirm("wanna delete ?")
         if(confirm){
-            fetch(`http://localhost:5000/product?id=${id}`,{
+            fetch(`https://epic-deals.vercel.app/product?id=${id}`,{
                 method:'DELETE',
             })
             .then(res => res.json())
