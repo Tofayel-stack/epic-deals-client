@@ -20,8 +20,9 @@ Epic Deals is an online platform where businesses and individuals can buy and se
   * Can check who are his buyer & and get contact of them .
 
  ### Buyer 
-  * Buy any product after few step like 
-           * add in his cart list 
-           * recheck his order is it OK or NOT
-           * finally make payment and confirm 
+  * Buy any product after few step like
+    
+           => add in his cart list 
+           => recheck his order is it OK or NOT
+           =>  finally make payment and confirm 
   * If find any problem can Report a product 
