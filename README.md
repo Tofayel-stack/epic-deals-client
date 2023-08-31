@@ -5,8 +5,7 @@ Epic Deals is an online platform where businesses and individuals can buy and se
 
  * There will be three type of user like , 1.Admin 2.Seller 3.Buyer/Regular user
  *  Each user have some individual functionality 
- * There remail a Payment system form STRIPE 
-
+ * There remain a Payment system from STRIPE 
  
  ### Admin 
   * Have the authorizaton of see and delete the both user Buyer and Seller.
@@ -25,3 +24,26 @@ Epic Deals is an online platform where businesses and individuals can buy and se
            => recheck his order is it OK or NOT
            =>  finally make payment and confirm 
   * If find any problem can Report a product 
+
+## Build with 
+
+* Taiwind
+* DaisyUI
+* AOS
+* React js
+* Firebase
+* Express js
+* MongoDB
+* Stripe
+
+## Deployment
+#### Live site :  https://epic-deals-ecommerce.web.app/
+#### server live : 
+#### server git link : https://github.com/Tofayel-stack/epic-deals-server
+
+
+## Author
+### Tofayel Hossain https://www.linkedin.com/in/tofayel-hossain-472a31216/
+
+
+  
