@@ -3,13 +3,11 @@ Epic Deals is an online platform where businesses and individuals can buy and se
 
 ## Featue & Use guide
 
- “*” There will be three type of user like , 1.Admin 2.Seller 3.Buyer/Regular user
+ * There will be three type of user like , 1.Admin 2.Seller 3.Buyer/Regular user
  “*” Each user have some individual functionality 
  “*” There remail a Payment system form STRIPE 
 
- ```
-FEATURE OF EACH USER
-```
+ 
  ### Admin 
   “*” Have the authorizaton of see and delete the both user Buyer and Seller.
   “*” Can check the uploaded product of this site.
