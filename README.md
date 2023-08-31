@@ -21,7 +21,6 @@ Epic Deals is an online platform where businesses and individuals can buy and se
 
  ### Buyer 
   * Buy any product after few step like
-    
            => add in his cart list 
            => recheck his order is it OK or NOT
            =>  finally make payment and confirm 
