@@ -26,7 +26,7 @@ Epic Deals is your go-to online marketplace where businesses and individuals can
   * Report product issues.
 
 ## Technology Stack
-###Our platform is built on a solid technological foundation:
+### Our platform is built on a solid technological foundation:
 
 * Frontend: Tailwind CSS, DaisyUI, and React.js for a sleek, interactive interface.
 * Backend: Firebase, Express.js, and MongoDB for robust functionality.
