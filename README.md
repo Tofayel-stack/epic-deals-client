@@ -38,7 +38,7 @@ Epic Deals is your go-to online marketplace where businesses and individuals can
 Epic Deals is committed to delivering a secure, user-friendly online marketplace for businesses and individuals. With distinct user roles, advanced technology, and seamless payment processing, Epic Deals sets the standard for modern e-commerce excellence.
 
 ## Deployment
-#### Live site :  https://epic-deals-ecommerce.web.app/
+#### Live site :  https://epic-deals-shopping-site.web.app/
 #### server live : 
 #### server git link : https://github.com/Tofayel-stack/epic-deals-server
 
