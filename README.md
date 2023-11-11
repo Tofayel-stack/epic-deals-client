@@ -13,17 +13,20 @@ Epic Deals is your go-to online marketplace where businesses and individuals can
   * Monitor product listings.
   * Review and address reported items.
   * Grant verified badges to Sellers.
+### FEATURE TEST ID : email: admin@admin.com , pass: 123456
 
  ### Seller
   * Add and manage products.
   * Promote products as "Hot Deals for Today."
   * Access buyer information for efficient communication.
+### FEATURE TEST ID : email: mdtofayelhossain69@gmail.com , pass: 123456
 
  ### Buyer/Regular User
   * Easily shop by adding products to the cart.
   * Review and confirm orders.
   * Securely make payments.
   * Report product issues.
+### FEATURE TEST ID : email: turag@gmail.com , pass: 123456
 
 ## Technology Stack
 ### Our platform is built on a solid technological foundation:
